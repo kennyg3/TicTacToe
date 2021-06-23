@@ -2,14 +2,14 @@ const Screen = require("./screen");
 const Cursor = require("./cursor");
 
 class TTT {
-
   constructor() {
-
     this.playerTurn = "O";
 
-    this.grid = [[' ',' ',' '],
-                 [' ',' ',' '],
-                 [' ',' ',' ']]
+    this.grid = [
+      [" ", " ", " "],
+      [" ", " ", " "],
+      [" ", " ", " "],
+    ];
 
     this.cursor = new Cursor(3, 3);
 
@@ -19,9 +19,7 @@ class TTT {
 
     // Replace this with real commands
 
-
-
-    Screen.addCommand('t', 'test command (remove)', TTT.testCommand);
+    Screen.addCommand("t", "test command (remove)", TTT.testCommand);
 
     Screen.render();
   }
@@ -32,23 +30,29 @@ class TTT {
   }
 
   static checkWin(grid) {
-    grid.forEach(current => {
-      console.log(grid)
-      console.log(current)
-    });
-    // if(grid ==
-
     // Return 'X' if player X wins
     // Return 'O' if player O wins
-    // Return 'T' if the game is a tie
-    // Return false if the game has not ended
+    // for (let i = 0; i < grid.length; i++) {
+    //   for (let j = 0; j < grid[i].length; j++) {
+    //     if()
+    //   }
 
+    // Return 'T' if the game is a tie
+
+    // Return false if the game has not ended
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] === " ") {
+          return false;
+        }
+      }
+    }
   }
 
   static endGame(winner) {
-    if (winner === 'O' || winner === 'X') {
+    if (winner === "O" || winner === "X") {
       Screen.setMessage(`Player ${winner} wins!`);
-    } else if (winner === 'T') {
+    } else if (winner === "T") {
       Screen.setMessage(`Tie game!`);
     } else {
       Screen.setMessage(`Game Over`);
@@ -56,7 +60,6 @@ class TTT {
     Screen.render();
     Screen.quit();
   }
-
 }
 
 module.exports = TTT;
