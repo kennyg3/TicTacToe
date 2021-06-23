@@ -1,7 +1,6 @@
 const Screen = require("./screen");
 
 class Cursor {
-
   constructor(numRows, numCols) {
     this.numRows = numRows;
     this.numCols = numCols;
@@ -9,9 +8,8 @@ class Cursor {
     this.row = 0;
     this.col = 0;
 
-    this.gridColor = 'black';
-    this.cursorColor = 'yellow';
-
+    this.gridColor = "black";
+    this.cursorColor = "yellow";
   }
 
   resetBackgroundColor() {
@@ -23,11 +21,20 @@ class Cursor {
   }
 
   up() {
-    // Move cursor up
+    console.log(this.row);
+    if (this.row !== 0) {
+      Screen.setGrid((this.row -= 1), this.col, this.char);
+    } else {
+      Screen.setGrid((this.row = 0), this.col, this.char);
+    }
   }
 
   down() {
-    // Move cursor down
+    if (this.row !== 2) {
+      Screen.setGrid((this.row += 1), this.col, this.char);
+    } else {
+      Screen.setGrid((this.row = 2), this.col, this.char);
+    }
   }
 
   left() {
@@ -37,8 +44,6 @@ class Cursor {
   right() {
     // Move cursor right
   }
-
 }
-
 
 module.exports = Cursor;
