@@ -38,11 +38,19 @@ class Cursor {
   }
 
   left() {
-    // Move cursor left
+    if (this.col !== 0) {
+      Screen.setGrid((this.row), (this.col -= 1), this.char);
+    } else {
+      Screen.setGrid((this.row), (this.col = 0), this.char);
+    }
   }
 
   right() {
-    // Move cursor right
+    if (this.col !== 2) {
+      Screen.setGrid((this.row), (this.col += 1), this.char);
+    } else {
+      Screen.setGrid((this.row), (this.col = 2), this.char);
+    }
   }
 }
 

@@ -18,6 +18,9 @@ class TTT {
     Screen.setGridlines(true);
 
     // Replace this with real commands
+
+
+
     Screen.addCommand('t', 'test command (remove)', TTT.testCommand);
 
     Screen.render();
@@ -29,6 +32,11 @@ class TTT {
   }
 
   static checkWin(grid) {
+    grid.forEach(current => {
+      console.log(grid)
+      console.log(current)
+    });
+    // if(grid ==
 
     // Return 'X' if player X wins
     // Return 'O' if player O wins
