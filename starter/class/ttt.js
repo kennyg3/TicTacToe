@@ -25,21 +25,68 @@ class TTT {
   }
 
   // Remove this
-  static testCommand() {
-    console.log("TEST COMMAND");
-  }
+  // static testCommand() {
+  //   console.log("TEST COMMAND");
+  // }
 
   static checkWin(grid) {
+    console.log(grid);
     // Return 'X' if player X wins
     // Return 'O' if player O wins
-    // for (let i = 0; i < grid.length; i++) {
-    //   for (let j = 0; j < grid[i].length; j++) {
-    //     if()
-    //   }
+    // X HORIZONTAL WINS
+    if (
+      (grid = [
+        ["X", "X", "X"],
+        [" ", " ", " "],
+        [" ", " ", " "],
+      ])
+    ) {
+      return "X";
+    } else if (
+      (grid = [
+        [" ", " ", " "],
+        ["X", "X", "X"],
+        [" ", " ", " "],
+      ])
+    ) {
+      return "X";
+    } else if (
+      (grid = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        ["X", "X", "X"],
+      ])
+    ) {
+      return "X";
+    }
 
-    // Return 'T' if the game is a tie
+    ///////////////////// O HORIZOTNAL wins
+    else if (
+      (grid = [
+        ["O", "O", "O"],
+        [" ", " ", " "],
+        [" ", " ", " "],
+      ])
+    ) {
+      return "O";
+    } else if (
+      (grid = [
+        [" ", " ", " "],
+        ["O", "O", "O"],
+        [" ", " ", " "],
+      ])
+    ) {
+      return "O";
+    } else if (
+      (grid = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        ["O", "O", "O"],
+      ])
+    ) {
+      return "O";
+    }
 
-    // Return false if the game has not ended
     for (let i = 0; i < grid.length; i++) {
       for (let j = 0; j < grid[i].length; j++) {
         if (grid[i][j] === " ") {
@@ -47,6 +94,9 @@ class TTT {
         }
       }
     }
+    //////////////////
+    // Return 'T' if the game is a tie
+    // Return false if the game has not ended
   }
 
   static endGame(winner) {

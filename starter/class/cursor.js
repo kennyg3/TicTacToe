@@ -21,7 +21,6 @@ class Cursor {
   }
 
   up() {
-    console.log(this.row);
     if (this.row !== 0) {
       Screen.setGrid((this.row -= 1), this.col, this.char);
     } else {
@@ -39,17 +38,17 @@ class Cursor {
 
   left() {
     if (this.col !== 0) {
-      Screen.setGrid((this.row), (this.col -= 1), this.char);
+      Screen.setGrid(this.row, (this.col -= 1), this.char);
     } else {
-      Screen.setGrid((this.row), (this.col = 0), this.char);
+      Screen.setGrid(this.row, (this.col = 0), this.char);
     }
   }
 
   right() {
     if (this.col !== 2) {
-      Screen.setGrid((this.row), (this.col += 1), this.char);
+      Screen.setGrid(this.row, (this.col += 1), this.char);
     } else {
-      Screen.setGrid((this.row), (this.col = 2), this.char);
+      Screen.setGrid(this.row, (this.col = 2), this.char);
     }
   }
 }
